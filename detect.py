@@ -92,6 +92,9 @@ if __name__ == "__main__":
     colors = [cmap(i) for i in np.linspace(0, 1, 20)]
 
     print("\nSaving images:")
+    # create folder for saving images
+    if not os.path.exists('output'):
+        os.mkdir('output')
     # Iterate through images and save plot of detections
     for img_i, (path, detections) in enumerate(zip(imgs, img_detections)):
 
@@ -136,6 +139,10 @@ if __name__ == "__main__":
         plt.axis("off")
         plt.gca().xaxis.set_major_locator(NullLocator())
         plt.gca().yaxis.set_major_locator(NullLocator())
-        filename = path.split("/")[-1].split(".")[0]
-        plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
+        #filename = path.split("/")[-1].split(".")[0]
+        #plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
+        filename = os.path.basename(path)
+        filename = filename.rsplit('.', maxsplit=1)[0]
+        filepath = os.path.join('output', filename + '.png')
+        plt.savefig(f"{filepath}", bbox_inches="tight", pad_inches=0.0)
         plt.close()

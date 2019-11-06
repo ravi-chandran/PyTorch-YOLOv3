@@ -1,15 +1,20 @@
 # PyTorch-YOLOv3
 A minimal PyTorch implementation of YOLOv3, with support for training, inference and evaluation.
 
+Forked version notes:
+- Minor additions/changes to run under Windows 10 Anaconda Python for inference.
+- Uses `powershell Expand-Archive` to unzip files.
+- TODO: update batch files and verify training.
+
 ## Installation
 ##### Clone and install requirements
-    $ git clone https://github.com/eriklindernoren/PyTorch-YOLOv3
+    $ git clone https://github.com/ravi-chandran/PyTorch-YOLOv3.git
     $ cd PyTorch-YOLOv3/
-    $ sudo pip3 install -r requirements.txt
+    $ pip install -r pip_freeze.txt
 
 ##### Download pretrained weights
     $ cd weights/
-    $ bash download_weights.sh
+    $ download_weights.bat
 
 ##### Download COCO
     $ cd data/
